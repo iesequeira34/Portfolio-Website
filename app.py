@@ -68,7 +68,7 @@ st.write("#")
 
 
 
-with open("assets/profile-pic-small.png", "rb") as f:
+with open("assets/profile-pic-small.PNG", "rb") as f:
     data = base64.b64encode(f.read()).decode()
 
 
