@@ -6,7 +6,7 @@ import base64
 current_dir = Path(__file__).parent if "__file__" in locals() else Path.cwd()
 css_file = current_dir / "styles" / "main.css"
 resume_file = current_dir / "assets" / "CV.pdf"
-profile_pic_path = current_dir / "assets" / "profile-pic-small.png"
+profile_pic_path = current_dir / "assets" / "profile-pic-small.PNG"
 linkedin_logo = current_dir / "assets" / "linkedin-logo.png"
 
 PAGE_TITLE = "Digital CV | Ian Sequeira"
