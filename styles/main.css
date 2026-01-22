@@ -1,0 +1,168 @@
+ @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+
+* {
+    font-family: 'Inter', sans-serif;
+}
+
+.greeting {
+    font-size: 2.5rem;
+    font-weight: 500;
+    color: white;
+    text-align: center;
+    margin: 2rem 0;
+    animation: fadeInDown 1s ease-out;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.profile-card {
+    background: #0d2f4bee;
+    backdrop-filter: blur(10px);
+    border-radius: 24px;
+    padding: 2rem;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    animation: fadeInUp 1s ease-out 0.3s both;
+    margin: 2rem auto;
+    max-width: 1200px;
+    border-left: 5px solid #667eea
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.profile-img-container {
+    position: relative;
+    width: 250px;
+    height: 250px;
+    margin: 0 auto;
+}
+
+.profile-img-container img {
+    border-radius: 50%;
+    border: 6px solid #667eea;
+    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+    animation: float 3s ease-in-out infinite;
+    transition: transform 0.3s ease;
+}
+
+.profile-img-container img:hover {
+    transform: scale(1.05);
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+a {
+    text-decoration: none;
+    color: white !important;
+    font-weight: 500;
+}
+
+a:hover {
+    color: #d33682 !important;
+    text-decoration: none;
+}
+
+ul {list-style-type: none;}
+
+hr {
+    border: none;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, #667eea, transparent);
+    margin: 2rem 0;
+}
+
+#MainMenu {visibility: hidden;}
+footer {visibility: hidden;}
+header {visibility: hidden;}
+
+.stDownloadButton button {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    width: 25%;
+    vertical-align: "center";
+    padding: 0.8rem 2rem;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+}
+
+.stDownloadButton button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(102, 126, 234, 0.6);
+}
+
+.section-header {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: white;
+    text-align: center;
+    margin: 3rem 0 2rem 0;
+    animation: fadeInUp 1s ease-out 0.3s both;
+}
+
+.job-card {
+    background: #0d2f4bee;
+    border-radius: 16px;
+    padding: 2rem;
+    margin: 1.5rem auto;
+    max-width: 1200px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+    animation: slideInLeft 0.6s ease-out;
+    border-left: 5px solid #667eea;
+}
+
+.job-card:hover {
+    transform: translateX(10px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.contact-card {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 16px;
+    padding: 2rem;
+    margin: 2rem auto;
+    max-width: 800px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    animation: fadeInUp 0.8s ease-out;
+}
