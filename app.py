@@ -53,133 +53,12 @@ ICON_PATHS = {
     "Phone": "assets/phone-icon.png"
 }
 
-st.set_page_config(page_title=PAGE_TITLE, page_icon=PAGE_ICON)
-
-with open(css_file) as f:
-    st.markdown("<style>{}</style".format(f.read()), unsafe_allow_html=True)
-
-# with open(resume_file, "rb") as pdf_file:
-#     PDF_byte = pdf_file.read()
-
-profile_pic = Image.open(profile_pic_path)
-
-# st.markdown('<div class="typing-container"><div class="typing">Hey there, I\'m Ian Sequeira!</div></div>', unsafe_allow_html=True)
-components.html(
-"""
-<style>
-.hero {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.typing-container {
-  text-align: center;
-}
-
-.typing {
-  font-size: 3.0rem;
-  color: white;
-  font-weight: 600;
-  font-family: 'Inter', sans-serif;
-  white-space: nowrap;
-  border-right: 0.15em solid orange;
-  padding-right: 0.2em;
-  animation: blink-caret 0.75s step-end infinite;
-}
-
-@keyframes blink-caret {
-  from, to { border-color: transparent; }
-  50% { border-color: orange; }
-}
-
-@media (max-width: 768px) {
-  .typing {
-    font-size: 1.6rem;
-  }
-}
-
-</style>
-<div class="hero">
-  <div class="typing-container">
-    <span class="typing" id="typing"></span>
-  </div>
-</div>
-
-<script>
-(() => {
-  const lines = [
-    "Hi there!",
-    "I'm Ian Sequeira",
-    "An AI Engineer",
-    "Let's connect and build something fun together!",
-    ];
-
-  const el = document.getElementById("typing");
-  if (!el) return;
-
-  let lineIndex = 0;
-  let charIndex = 0;
-  let deleting = false;
-
-  const TYPE_SPEED = 90;
-  const DELETE_SPEED = 50;
-  const HOLD_AFTER_TYPE = 1200;
-
-  function loop() {
-    const text = lines[lineIndex];
-
-    if (!deleting) {
-      el.textContent = text.slice(0, ++charIndex);
-
-      if (charIndex === text.length) {
-        setTimeout(() => deleting = true, HOLD_AFTER_TYPE);
-      }
-    } else {
-      el.textContent = text.slice(0, --charIndex);
-
-      if (charIndex === 0) {
-        deleting = false;
-        lineIndex = (lineIndex + 1) % lines.length;
-      }
-    }
-
-    setTimeout(loop, deleting ? DELETE_SPEED : TYPE_SPEED);
-  }
-
-  loop();
-})();
-</script>
-""",
-
-)
-
-
-with open("assets/profile-pic-small.PNG", "rb") as f:
-    data = base64.b64encode(f.read()).decode()
-
-
-
-st.markdown(f"""
-<div class="profile-img-container">
-    <img src="data:image/png;base64,{data}" />
-</div>
-""", unsafe_allow_html=True)
-
-st.markdown(f'<div class="profile-card">{DESCRIPTION}</div>', unsafe_allow_html=True)
-
-
-st.write("#")
-st.subheader("Experience", divider=True, text_alignment="center")
-
-j1 = st.container()
 PWC_DESC = """
 <h3>Machine Learning Engineer | PwC India</h3>
 <p><strong><i>July 2023 - June 2025</i></strong></p>
 <hr />
 
-
-- ➤ Engineered end-to-end ML pipeline for complaint management at
+- ➤Engineered end-to-end ML pipeline for complaint management at
 India's largest private bank, orchestrating Azure cloud services (VMs,
 SQL Database, Blob Storage, Key Vault) in a microservices architecture
 for scalable ML inference.
@@ -205,14 +84,7 @@ cost-benefit case to senior leadership.
 - ➤ Led AI enablement sessions to upskill developers on ML tools, Linux
 systems, and Azure-based deployment workflows.
 """
-j1.markdown("""
-<div class="job-card" style="border-left: 5px solid orange">
-{PWC_DESC}
-</div>""".format(PWC_DESC=PWC_DESC), unsafe_allow_html=True)
-# j1.write()
 
-
-j2 = st.container()
 JK_DESC = """
 <h3>Data Science Intern | JK Cement Ltd.</h3>
 <p><strong><i>October 2022 - June 2023</i></strong></p>
@@ -227,9 +99,7 @@ Heat Recovery System which reduced heat energy requirements by
 reducing specific heat of the clinker mix and thus reducing the heat
 energy required in the manufacturing process by 20%.
 """
-j2.markdown(f"""<div class="job-card" style="border-left: 5px solid green">{JK_DESC}</div>""", unsafe_allow_html=True)
 
-j3 = st.container()
 NEC_DESC = """
 <h3>Web Development Intern | NEC Corporation</h3>
 <p><strong><i>June 2021 - September 2021</i></strong></p>
@@ -245,6 +115,74 @@ for efficient data management and visualization.
 - ➤ Programmed an automated email notification system for talent show
 results, enhancing event management efficiency.
 """
+
+def get_image_data(image_path):
+    with open(image_path, "rb") as f:
+        data = base64.b64encode(f.read()).decode()
+    return data
+
+def get_resume_data(resume_path):
+    PDF_byte = resume_path.read()
+    return PDF_byte
+
+
+st.set_page_config(page_title=PAGE_TITLE, page_icon=PAGE_ICON)
+
+with open(css_file) as f:
+    st.markdown("<style>{}</style".format(f.read()), unsafe_allow_html=True)
+
+
+profile_pic = Image.open(profile_pic_path)
+
+with open("styles/greeting.js") as f:
+    greeting_js = f.read()
+
+with open("styles/greeting.css") as f:
+    greeting_css = f.read()
+
+components.html(f"""
+<style>
+{greeting_css}
+</style>
+
+<div class="hero">
+  <div class="typing-container">
+    <span class="typing" id="typing"></span>
+  </div>
+</div>
+
+<script>
+{greeting_js}
+</script>
+""", height=150
+)
+
+
+
+
+
+prof_pic_data = get_image_data(profile_pic_path)
+st.markdown(f"""
+<div class="profile-img-container">
+    <img src="data:image/png;base64,{prof_pic_data}" />
+</div>
+""", unsafe_allow_html=True)
+
+st.markdown(f'<div class="profile-card">{DESCRIPTION}</div>', unsafe_allow_html=True)
+
+
+st.write("#")
+st.subheader("Experience", divider=True, text_alignment="center")
+
+
+
+j1 = st.container()
+j1.markdown(f"""<div class="job-card" style="border-left: 5px solid orange">{PWC_DESC}</div>""", unsafe_allow_html=True)
+
+j2 = st.container()
+j2.markdown(f"""<div class="job-card" style="border-left: 5px solid green">{JK_DESC}</div>""", unsafe_allow_html=True)
+
+j3 = st.container()
 j3.markdown(f"""<div class="job-card" style="border-left: 5px solid blue">{NEC_DESC}</div>""", unsafe_allow_html=True)
 
 st.write("#")
@@ -253,19 +191,18 @@ st.subheader("Projects", divider=True, text_alignment="center")
 for project, link in PROJECTS.items():
     desc = PROJECT_DESC[project]
     st.markdown(f"""<div class="job-card" style="border-left: 5px solid">
-<h5><u><a href="{link}">{project}</a></u></h5>
+<h4><a href="{link}">{project}</a></h4>
 {desc}
 </div>""", unsafe_allow_html=True)
 
 st.write("#")
 st.subheader("Socials", divider=True, text_alignment="center")
-cols = st.columns(len(SOCIAL_MEDIA), vertical_alignment="center", gap="medium")
+cols = st.columns(len(SOCIAL_MEDIA), vertical_alignment="center", gap="large")
 
 for col, (platform, link) in zip(cols, SOCIAL_MEDIA.items()):
     icon_path = ICON_PATHS[platform]
 
-    with open(icon_path, "rb") as f:
-        data = base64.b64encode(f.read()).decode()
+    data = get_image_data(icon_path)
 
     col.markdown(
         f"""
@@ -273,9 +210,6 @@ for col, (platform, link) in zip(cols, SOCIAL_MEDIA.items()):
             <a href="{link}">
                 <img src="data:image/png;base64,{data}" width="36"/>
             </a>
-            <p>
-            {platform}
-            </p>
         </div>
         """,
         unsafe_allow_html=True

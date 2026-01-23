@@ -4,35 +4,6 @@
     font-family: 'Inter', sans-serif;
 }
 
-@keyframes typing {
-  from { max-width: 0 }
-  to { max-width: 100% }
-}
-
-@keyframes blink-caret {
-  from, to { border-color: transparent }
-  50% { border-color: orange }
-}
-
-/* Parent wrapper */
-.typing-container {
-  display: flex;
-  justify-content: center;
-}
-
-/* Typing text */
-.typing {
-  overflow: hidden;
-  white-space: nowrap;
-  border-right: .15em solid orange;
-  letter-spacing: .07em;
-  font-size: 2.5rem;
-  max-width: 100%;
-  animation:
-    typing 3.5s steps(30, end) forwards,
-    blink-caret .75s step-end infinite;
-}
-
 
 .greeting {
     font-size: 2.5rem;
@@ -61,10 +32,21 @@
     border-radius: 24px;
     padding: 2rem;
     box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-    animation: fadeInUp 1s ease-out 0.3s both;
+    /* animation: fadeInUp 1s ease-out 0.3s both; */
     margin: 2rem auto;
     max-width: 1200px;
-    border-left: 5px solid #667eea
+    border-left: 5px solid #667eea;
+    transform: translateY(10px);
+    transition: transform 0.8s ease-out;
+}
+
+.profile-card.visible {
+    animation: fadeInUp 1s ease-out 0.3s both;
+}
+
+.profile-card:hover {
+    transform: translateX(10px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.3);
 }
 
 @keyframes fadeInUp {
@@ -165,14 +147,22 @@ header {visibility: hidden;}
     margin: 1.5rem auto;
     max-width: 1200px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-    transition: all 0.3s ease;
-    animation: slideInLeft 0.6s ease-out;
+    /* transition: all 0.3s ease; */
+    /* animation: slideInLeft 0.6s ease-out; */
     border-left: 5px solid #667eea;
+    transform: translateY(10px);
+    transition: transform 0.8s ease-out;
 }
 
 .job-card:hover {
+    opacity: 1;
     transform: translateX(10px);
     box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+}
+
+.job-card.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 @keyframes slideInLeft {
