@@ -2,6 +2,7 @@ from pathlib import Path
 import streamlit as st
 from PIL import Image
 import base64
+import streamlit.components.v1 as components
 
 current_dir = Path(__file__).parent if "__file__" in locals() else Path.cwd()
 css_file = current_dir / "styles" / "main.css"
@@ -62,10 +63,96 @@ with open(css_file) as f:
 
 profile_pic = Image.open(profile_pic_path)
 
-st.markdown('<div class="typing-container"><div class="typing">Hey there, I\'m Ian Sequeira!</div></div>', unsafe_allow_html=True)
-st.write("#")
+# st.markdown('<div class="typing-container"><div class="typing">Hey there, I\'m Ian Sequeira!</div></div>', unsafe_allow_html=True)
+components.html(
+"""
+<style>
+.hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
+.typing-container {
+  text-align: center;
+}
 
+.typing {
+  font-size: 3.0rem;
+  color: white;
+  font-weight: 600;
+  font-family: 'Inter', sans-serif;
+  white-space: nowrap;
+  border-right: 0.15em solid orange;
+  padding-right: 0.2em;
+  animation: blink-caret 0.75s step-end infinite;
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent; }
+  50% { border-color: orange; }
+}
+
+@media (max-width: 768px) {
+  .typing {
+    font-size: 1.6rem;
+  }
+}
+
+</style>
+<div class="hero">
+  <div class="typing-container">
+    <span class="typing" id="typing"></span>
+  </div>
+</div>
+
+<script>
+(() => {
+  const lines = [
+    "Hi there!",
+    "I'm Ian Sequeira",
+    "An AI Engineer",
+    "Let's connect and build something fun together!",
+    ];
+
+  const el = document.getElementById("typing");
+  if (!el) return;
+
+  let lineIndex = 0;
+  let charIndex = 0;
+  let deleting = false;
+
+  const TYPE_SPEED = 90;
+  const DELETE_SPEED = 50;
+  const HOLD_AFTER_TYPE = 1200;
+
+  function loop() {
+    const text = lines[lineIndex];
+
+    if (!deleting) {
+      el.textContent = text.slice(0, ++charIndex);
+
+      if (charIndex === text.length) {
+        setTimeout(() => deleting = true, HOLD_AFTER_TYPE);
+      }
+    } else {
+      el.textContent = text.slice(0, --charIndex);
+
+      if (charIndex === 0) {
+        deleting = false;
+        lineIndex = (lineIndex + 1) % lines.length;
+      }
+    }
+
+    setTimeout(loop, deleting ? DELETE_SPEED : TYPE_SPEED);
+  }
+
+  loop();
+})();
+</script>
+""",
+
+)
 
 
 with open("assets/profile-pic-small.PNG", "rb") as f:
