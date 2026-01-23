@@ -4,6 +4,36 @@
     font-family: 'Inter', sans-serif;
 }
 
+@keyframes typing {
+  from { max-width: 0 }
+  to { max-width: 100% }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: orange }
+}
+
+/* Parent wrapper */
+.typing-container {
+  display: flex;
+  justify-content: center;
+}
+
+/* Typing text */
+.typing {
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: .15em solid orange;
+  letter-spacing: .07em;
+  font-size: 2.5rem;
+  max-width: 100%;
+  animation:
+    typing 3.5s steps(30, end) forwards,
+    blink-caret .75s step-end infinite;
+}
+
+
 .greeting {
     font-size: 2.5rem;
     font-weight: 500;

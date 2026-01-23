@@ -62,7 +62,7 @@ with open(css_file) as f:
 
 profile_pic = Image.open(profile_pic_path)
 
-st.markdown('<div class="greeting">👋 Hello, I\'m Ian Sequeira!</div>', unsafe_allow_html=True)
+st.markdown('<div class="typing-container"><div class="typing">Hey there, I\'m Ian Sequeira!</div></div>', unsafe_allow_html=True)
 st.write("#")
 
 
