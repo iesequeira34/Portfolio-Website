@@ -129,10 +129,7 @@ def get_resume_data(resume_path):
 st.set_page_config(page_title=PAGE_TITLE, page_icon=PAGE_ICON)
 
 with open(css_file) as f:
-    st.markdown("<style>{}</style".format(f.read()), unsafe_allow_html=True)
-
-
-profile_pic = Image.open(profile_pic_path)
+    st.markdown(f"<style>{f.read()}</style", unsafe_allow_html=True)
 
 with open("styles/greeting.js") as f:
     greeting_js = f.read()
@@ -197,22 +194,29 @@ for project, link in PROJECTS.items():
 
 st.write("#")
 st.subheader("Socials", divider=True, text_alignment="center")
-cols = st.columns(len(SOCIAL_MEDIA), vertical_alignment="center", gap="large")
-
-for col, (platform, link) in zip(cols, SOCIAL_MEDIA.items()):
-    icon_path = ICON_PATHS[platform]
-
-    data = get_image_data(icon_path)
-
-    col.markdown(
-        f"""
-        <div style="text-align: center;">
-            <a href="{link}">
-                <img src="data:image/png;base64,{data}" width="36"/>
-            </a>
-        </div>
-        """,
-        unsafe_allow_html=True
-    )
 
 
+items = list(SOCIAL_MEDIA.items())
+
+for i in range(0, len(items), 2):
+    cols = st.columns(2, gap="xxsmall", width="stretch")
+
+    for col, (platform, link) in zip(cols, items[i:i+2]):
+        icon_path = ICON_PATHS[platform]
+        data = get_image_data(icon_path)
+
+        col.markdown(
+            f"""
+            <div style="display:flex; justify-content:center;">
+                <a href="{link}">
+                    <div class="social-img-container">
+                        <img src="data:image/png;base64,{data}" width="50"/>
+                        {platform}
+                    </div>
+                </a>
+            </div>
+            """,
+            unsafe_allow_html=True
+        )
+
+# <img src="data:image/png;base64,{data}" width="36"/>
