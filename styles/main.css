@@ -205,3 +205,30 @@ header {visibility: hidden;}
     box-shadow: 0 10px 30px rgba(0,0,0,0.2);
     animation: fadeInUp 0.8s ease-out;
 }
+
+
+
+.skill-card {
+    background: #0d2f4bee;
+    border-radius: 12px;
+    padding: 14px;
+    text-align: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.skill-card img {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 8px;
+}
+
+.skill-card p {
+    font-size: 0.85rem;
+    margin: 0;
+    color: #fff;
+}
+
+.skill-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+}

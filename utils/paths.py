@@ -11,3 +11,5 @@ RESUME_FILE = ASSETS_DIR / "CV.pdf"
 PROFILE_PIC = ASSETS_DIR / "profile-pic-small.PNG"
 
 
+
+

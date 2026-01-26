@@ -8,6 +8,43 @@ description: |
   Generative AI solutions for NLP, vision, and structured data tasks.
   Focused on aligning ML with business goals.
 
+skills:
+  - name: "Python"
+    icon: "python.png"
+
+  - name: "PyTorch"
+    icon: "pytorch.png"
+
+  - name: "Docker"
+    icon: "docker.png"
+
+  - name: "Kubernetes"
+    icon: "kubernetes.png"
+
+  - name: "C++"
+    icon: "cpp.png"
+
+  - name: "FastAPI"
+    icon: "fastapi.png"
+
+  - name: "Langgraph"
+    icon: "langgraph.png"
+
+  - name: "MLFlow"
+    icon: "mlflow.png"
+
+  - name: "PineCone"
+    icon: "pinecone.png"
+
+  - name: "PowerBI"
+    icon: "powerbi.png"
+
+  - name: "Scikit-Learn"
+    icon: "scikitlearn.png"
+
+  - name: "Azure Cloud Services"
+    icon: "azure.png"
+
 socials:
   - name: "LinkedIn"
     link: "https://www.linkedin.com/in/ian-sequeira-94b924204/"

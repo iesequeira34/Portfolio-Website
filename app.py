@@ -6,6 +6,7 @@ app_cfg = load_config("app.yaml")
 experiences = load_config("experience.yaml")['experience']
 projects = load_config("projects.yaml")['projects']
 socials = load_config("profile.yaml")['socials']
+skills = load_config("profile.yaml")['skills']
 
 DESCRIPTION = load_config("profile.yaml")['description']
 
@@ -23,6 +24,18 @@ load_greeting_component()
 load_profile_pic()
 
 load_profile_description()
+
+st.write("#")
+st.subheader("Skills", divider=True, text_alignment="center")
+
+for i in range(0, len(skills), 3):
+    cols = st.columns(3, gap="small")
+    for col, skill in zip(cols, skills[i:i + 3]):
+        desc = load_skill(skill)
+        col.markdown(
+            desc,
+            unsafe_allow_html=True
+        )
 
 
 st.write("#")
@@ -45,7 +58,7 @@ for project in projects:
 
 
 st.write("#")
-st.subheader("Socials", divider=True, text_alignment="center")
+st.subheader("Social Media", divider=True, text_alignment="center")
 
 for i in range(0, len(socials), 2):
     cols = st.columns(2, gap="xxsmall", width="stretch")
@@ -57,3 +70,5 @@ for i in range(0, len(socials), 2):
             desc,
             unsafe_allow_html=True
         )
+
+

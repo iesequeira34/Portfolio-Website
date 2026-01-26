@@ -103,3 +103,17 @@ def load_social(social: dict) -> str:
     """
 
     return final_description
+
+def load_skill(skill: dict) -> str:
+    name = skill["name"]
+    icon_path = ASSETS_DIR / skill["icon"]
+    data = get_image_data(icon_path)
+
+    final_description = f"""
+    <div class="skill-card">
+        <img src="data:image/png;base64,{data}" width="50" />
+        <p>{name}</p>
+    </div>
+    """
+
+    return final_description
