@@ -1,0 +1,27 @@
+name: "Ian Sequeira"
+email: "iesequeira34@gmail.com"
+pic: "profile-pic-small.PNG"
+
+description: |
+  Machine Learning Engineer building scalable, agentic AI systems using LLMs,
+  reinforcement learning, and multimodal models. Experienced in deploying
+  Generative AI solutions for NLP, vision, and structured data tasks.
+  Focused on aligning ML with business goals.
+
+socials:
+  - name: "LinkedIn"
+    link: "https://www.linkedin.com/in/ian-sequeira-94b924204/"
+    icon: "linkedin-logo.png"
+
+  - name: "GitHub"
+    link: "https://github.com/iesequeira34"
+    icon: "github-icon.png"
+
+  - name: "Email"
+    link: "mailto:iesequeira34@gmail.com"
+    icon: "email-icon.png"
+
+  - name: "Phone"
+    link: "tel:+919769007256"
+    icon: "phone-icon.png"
+

@@ -1,0 +1,30 @@
+experience:
+  - company: "PwC India"
+    color: "orange"
+    role: "Machine Learning Engineer"
+    period: "July 2023 - June 2025"
+    description: |
+      - Engineered end-to-end ML pipeline for complaint management at India's largest private bank, orchestrating Azure cloud services (VMs, SQL Database, Blob Storage, Key Vault) in a microservices architecture for scalable ML inference.
+      - Trained and deployed fine-tuned LLMs for NLP tasks including sentiment analysis, topic modelling, fraud detection, achieving 40% reduction in triage time through automated classification and root cause analysis.
+      - Built real-time analytics infrastructure with Power BI dashboards consuming ML outputs, enabling data-driven operations decisions through automated reporting pipelines.
+      - Built feedback loops for LLM fine-tuning via user corrections, improving model accuracy by 25%.
+      - Automated production monitoring for model health checks, data quality validation, and system diagnostics, ensuring reliable ML operations.
+      - Secured AI infrastructure investment by presenting a data-driven cost-benefit case to senior leadership.
+      - Led AI enablement sessions to upskill developers on ML tools, Linux systems, and Azure-based deployment workflows.
+
+  - company: "JK Cement Ltd."
+    color: "green"
+    role: "Data Science Intern"
+    period: "October 2022 - June 2023"
+    description: |
+      - Developed a predictive model for ascertaining appropriate fan speedsto be applied by Operators using random forest models for a Waste Heat Recovery System which reduced heat energy requirements by 16%.
+      - Optimized cement manufacturing by training XGBoost models, reducing specific heat of the clinker mix and thus reducing the heat energy required in the manufacturing process by 20%.
+
+  - company: "NEC Corporation"
+    color: "blue"
+    role: "Web Development Intern"
+    period: "June 2021 - September 2021"
+    description: |
+      - Created REST APIs for internal transportation management, enabling seamless employee and client access.
+      - Designed and integrated a COVID-19 portal with Microsoft SharePoint for efficient data management and visualization.
+      - Programmed an automated email notification system for talent show results, enhancing event management efficiency.

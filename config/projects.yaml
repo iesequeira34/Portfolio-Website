@@ -1,0 +1,14 @@
+projects:
+  - name: "Crop Yield Prediction"
+    link: "https://github.com/iesequeira34/Crop-Yield-Prediction"
+    description: |
+      XGBoost regressor used to estimate crop yield losses for Rice and Wheat
+      across Indian states. Implemented as a web application using Flask,
+      HTML5, CSS3, and JavaScript.
+
+  - name: "Paddy Disease Classification"
+    link: "https://github.com/iesequeira34/Agricare"
+    description: |
+      High-accuracy (97%) disease classification using cascading U-Net and CNN
+      architecture to enable early detection and improved agricultural decision-making by enabling early detection of crop diseases, optimizing
+      yield protection strategies for farmers.
