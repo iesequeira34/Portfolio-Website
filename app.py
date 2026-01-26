@@ -1,5 +1,5 @@
 import streamlit as st
-from utils.config_loader import *
+from utils.config_loader import load_config, load_main_css, load_greeting_component, load_profile_pic, load_profile_description, load_job, load_project, load_social, load_skill
 
 
 app_cfg = load_config("app.yaml")
